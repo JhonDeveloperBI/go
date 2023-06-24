@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "fmt" // golang.org/pkg
 
 func main() {
 	fmt.Println("hello world")
