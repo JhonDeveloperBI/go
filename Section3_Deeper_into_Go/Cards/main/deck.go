@@ -9,24 +9,21 @@ import (
 	"time"
 )
 
-// crearte a new type of 'deck'
-// which is a slice of strings
-
 type deck []string
 
 func newDeck() deck {
 	cards := deck{}
 
-	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Cluster"}
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
 	cardValues := []string{"Ace", "Two", "Three", "Four"}
 
 	for _, suit := range cardSuits {
 		for _, value := range cardValues {
-			cards = append(cards, suit+" of"+value)
+			cards = append(cards, value+" of "+suit)
 		}
 	}
-
 	return cards
+
 }
 
 func (d deck) print() {
@@ -49,7 +46,6 @@ func (d deck) saveToFile(filename string) error {
 
 func newDeckFromFile(filename string) deck {
 	bs, err := ioutil.ReadFile(filename)
-
 	if err != nil {
 		fmt.Println("Error:", err)
 		os.Exit(1)
